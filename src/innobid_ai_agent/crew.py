@@ -1,13 +1,15 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from crewai_tools import PDFSearchTool
 import os
 from dotenv import load_dotenv
+from typing import Type
+from crewai.tools import BaseTool
+import requests
+from innobid_ai_agent.tools.DocumentReader import PDFReaderTool 
 load_dotenv()
 
-# Initialize the tool allowing for any PDF content search if the path is provided during execution
-tools = PDFSearchTool('https://bursary.s3.us-east-1.amazonaws.com/tender-docs/5/69028487-22d1-4e8c-8f13-4977c073e320/aebd8f4b-6d6f-42e0-89e9-f5de6768ad77.pdf')
 
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
 
@@ -29,7 +31,7 @@ class InnobidAiAgent():
     def document_reader_agent(self) -> Agent:
         return Agent(
             config=self.agents_config['document_reader_agent'],
-            tool=tools,
+            tool=PDFReaderTool(),
             verbose=True,
             
         )
