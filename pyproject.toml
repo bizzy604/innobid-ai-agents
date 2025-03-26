@@ -1,0 +1,23 @@
+[project]
+name = "innobid_ai_agent"
+version = "0.1.0"
+description = "innobid-ai-agent using crewAI"
+authors = [{ name = "Amoni Kevin", email = "kevinamoni20@gmail.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.108.0,<1.0.0"
+]
+
+[project.scripts]
+innobid_ai_agent = "innobid_ai_agent.main:run"
+run_crew = "innobid_ai_agent.main:run"
+train = "innobid_ai_agent.main:train"
+replay = "innobid_ai_agent.main:replay"
+test = "innobid_ai_agent.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

@@ -1,0 +1,143 @@
+document_analyst_task:
+  description: >
+    Analyze the bid documents for bid ID
+            
+            Documents to analyze:
+            
+            Extract key information related to:
+            1. Vendor credentials and qualifications
+            2. Compliance with tender requirements
+            3. Technical specifications and methodologies
+            4. Financial details and cost breakdowns
+            5. Project timeline and milestones
+            6. Risk management approaches
+            
+            Use the document analysis tool to read and analyze the content from each document.
+            
+            Provide a comprehensive summary of all key findings from the documents, including 
+            any inconsistencies, missing information, or strengths identified.''',
+  expected_output: >
+    A comprehensive document analysis report including:
+            - Summary of key information from each document
+            - Assessment of document completeness and quality
+            - Key issues or strengths identified in the documentation
+            - Extracted data relevant to bid evaluation
+  agent: document_reader_agent
+  
+initial_screening_task:
+  description: >
+    Conduct initial screening of the bid with the following details:
+            - Project Amount:
+            - Project Completion Time: 
+            - Technical Proposal: 
+            - Vendor Experience: 
+            
+            Review the document analysis report from the Document Analyst.
+            
+            Evaluate if the bid meets the basic requirements and calculate initial screening score.
+            Determine if the bid should proceed to further evaluation.
+            
+            Provide a score out of 100 and a detailed report.
+  expected_output: >
+    A detailed report including:
+            - Initial screening score (0-100)
+            - Basic requirements compliance status
+            - Recommendation for further processing
+  agent: initial_screening_agent
+
+compliance_task:
+  description: >
+    Conduct a thorough compliance check on the bid with:
+            - Documents reports:
+            
+            Review the document analysis report from the Document Analyst.
+            
+            Verify all legal and organizational compliance requirements.
+            Identify any potential compliance issues.
+            
+            Provide a score out of 100 and a detailed report.
+  expected_output: >
+    A comprehensive compliance report including:
+            - Compliance score (0-100)
+            - Full legal compliance status
+            - Any identified compliance risks
+            - Detailed compliance assessment report
+  agent: compliance_agent
+
+risk_assessment_task:
+  description: >
+    Conduct a detailed risk assessment on the bid with:
+            - Risk Factors:
+            - Risk Mitigation Plan:
+            
+            Review the document analysis report from the Document Analyst.
+            
+            Identify and assess all potential risks associated with the bid.
+            Evaluate the effectiveness of the risk mitigation plan.
+            
+            Provide a risk assessment score out of 100 and a detailed report.
+  expected_output: >
+    A comprehensive risk assessment report including:
+            - Risk assessment score (0-100)
+            - Identified risks and their severity
+            - Effectiveness of the risk mitigation plan
+            - Detailed risk assessment
+  agent: risk_assessment_agent
+
+comparative_analysis_task:
+  description: >
+    Conduct a comparative analysis between the bid and other bids in the tender.
+            Review the document analysis report from the Document Analyst.
+            
+            Compare the bid with other bids in the tender based on:
+            - Technical Proposal: 
+            - Vendor Experience:
+            - Document report:
+            - Risk Factors: 
+            - Risk Mitigation Plan: 
+            
+            Provide a comparative analysis score out of 100 and a detailed report.
+  expected_output: >
+    A comparative analysis report including:
+            - Comparative analysis score (0-100)
+            - Strengths and weaknesses compared to other bids
+            - Detailed comparative analysis
+  agent: comparative_analysis_agent
+
+award_recommendation_task:
+  description: >
+    Conduct an award recommendation with:
+            - Initial Screening Score: 
+            - Compliance Score: 
+            - Risk Assessment Score: 
+            - Comparative Analysis Score:
+            
+            Review the document analysis report from the Document Analyst.
+            
+            Evaluate the bid based on the scores and provide a final recommendation.
+  expected_output: >
+    Final recommendation report including:
+            - Recommendation score (0-100)
+            - Clear recommendation (yes/no)
+            - Justification for recommendation
+            - Key supporting evidences for recommendation
+  agent: award_recommendation_agent
+
+summary_task:
+  description: >
+    Summarize the final recommendation with:
+            - Recommendation score:
+            - Clear recommendation:
+            - Justification for recommendation:
+            - Key supporting evidences for recommendation:
+            
+            Review the document analysis report from the Document Analyst.
+            
+            Provide a summary of the final recommendation.
+  expected_output: >
+    A summary of the final recommendation including:
+            - Recommendation score (0-100)
+            - Clear recommendation report with either (yes/no)
+            - Justification for recommendation
+            - Key supporting evidences for recommendation
+  agent: summary_agent
