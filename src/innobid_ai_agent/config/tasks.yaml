@@ -22,6 +22,11 @@ document_analyst_task:
             - Assessment of document completeness and quality
             - Key issues or strengths identified in the documentation
             - Extracted data relevant to bid evaluation
+      Example output:
+      {
+        "score": 85,
+        "report": "The analysis identified key strengths in vendor qualifications and compliance with tender requirements. However, some financial details were incomplete."
+      }
   agent: document_reader_agent
   
 initial_screening_task:
@@ -43,6 +48,11 @@ initial_screening_task:
             - Initial screening score (0-100)
             - Basic requirements compliance status
             - Recommendation for further processing
+      Example output:
+      {
+          "score": 75,
+          "report": "The bid meets basic requirements but lacks detailed vendor experience documentation. Recommended for further evaluation."
+      }
   agent: initial_screening_agent
 
 compliance_task:
@@ -62,6 +72,11 @@ compliance_task:
             - Full legal compliance status
             - Any identified compliance risks
             - Detailed compliance assessment report
+    Example Output:
+    {
+        "score": 90,
+        "report": "All legal requirements are met. No compliance risks identified."
+    }
   agent: compliance_agent
 
 risk_assessment_task:
@@ -82,26 +97,33 @@ risk_assessment_task:
             - Identified risks and their severity
             - Effectiveness of the risk mitigation plan
             - Detailed risk assessment
+    Example Output:
+    {
+        "score": 70,
+        "report": "Identified risks include potential delays in project timeline. The mitigation plan is adequate but requires more detail."
+    }
   agent: risk_assessment_agent
 
 comparative_analysis_task:
   description: >
-    Conduct a comparative analysis between the bid and other bids in the tender.
-            Review the document analysis report from the Document Analyst.
-            
-            Compare the bid with other bids in the tender based on:
-            - Technical Proposal: 
-            - Vendor Experience:
-            - Document report:
-            - Risk Factors: 
-            - Risk Mitigation Plan: 
-            
-            Provide a comparative analysis score out of 100 and a detailed report.
+    Conduct a comparative analysis between the bid and other bid requirements
+    
+  expected_output: >
+    A comparative analysis report including:
+    - Comparative analysis score (0-100)
+    - Strengths and weaknesses compared of the bid
+    - Detailed comparative analysis
+      
   expected_output: >
     A comparative analysis report including:
             - Comparative analysis score (0-100)
             - Strengths and weaknesses compared to other bids
             - Detailed comparative analysis
+    Example Output:
+    {
+        "score": 80,
+        "report": "The bid is competitive in terms of technical proposal but lacks experience compared to the leading bid."
+    }
   agent: comparative_analysis_agent
 
 award_recommendation_task:
@@ -111,9 +133,7 @@ award_recommendation_task:
             - Compliance Score: 
             - Risk Assessment Score: 
             - Comparative Analysis Score:
-            
             Review the document analysis report from the Document Analyst.
-            
             Evaluate the bid based on the scores and provide a final recommendation.
   expected_output: >
     Final recommendation report including:
@@ -121,6 +141,14 @@ award_recommendation_task:
             - Clear recommendation (yes/no)
             - Justification for recommendation
             - Key supporting evidences for recommendation
+    Example Output:
+    {
+        "score": 85,
+        "report": "Clear recommendation (yes/no)
+            - Justification for recommendation
+            - Key supporting evidences for recommendation
+            - Recommended for award due to strong compliance and risk assessment scores, despite some weaknesses in vendor experience."
+    }
   agent: award_recommendation_agent
 
 summary_task:
@@ -140,4 +168,9 @@ summary_task:
             - Clear recommendation report with either (yes/no)
             - Justification for recommendation
             - Key supporting evidences for recommendation
+    Example Output:
+    {
+        "score": 88,
+        "report": "Final recommendation is 'yes' based on strong scores across all assessments and clear justification provided."
+    }
   agent: summary_agent

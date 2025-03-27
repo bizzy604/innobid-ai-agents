@@ -17,6 +17,15 @@ class Results(BaseModel):
     score: int
     report: str
 
+class AggregateResults(BaseModel):
+    document_analysis: Results
+    initial_screening: Results
+    compliance: Results
+    risk_assessment: Results
+    comparative_analysis: Results
+    award_recommendation: Results
+    summary: Results
+
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
@@ -127,7 +136,7 @@ class InnobidAiAgent():
     def summary_task(self) -> Task:
         return Task(
             config=self.tasks_config['summary_task'],
-            output_file='report.md'
+            output_pydantic = AggregateResults
         )
 
     @crew
