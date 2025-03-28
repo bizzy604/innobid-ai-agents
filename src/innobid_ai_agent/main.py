@@ -18,47 +18,7 @@ def run():
     Run the crew.
     """
     inputs ={
-        "bidData": {
-  "bidData": {
-    "id": 1,
-    "amount": 15000,
-    "completion_time": "2023-12-31T23:59:59Z",
-    "technical_proposal": "Proposal for advanced software development.",
-    "vendor_experience": "5 years in software development.",
-    "submission_date": "2023-10-01T12:00:00Z",
-    "status": "submitted",
-    "documents": [
-      {
-        "id": 101,
-        "name": "Technical Proposal Document",
-        "url": "http://example.com/documents/technical_proposal.pdf",
-        "type": "pdf"
-      },
-      {
-        "id": 102,
-        "name": "Vendor Experience Document",
-        "url": "http://example.com/documents/vendor_experience.pdf",
-        "type": "pdf"
-      }
-    ],
-    "bidder": {
-      "id": 201,
-      "name": "John Doe",
-      "company": "Doe Enterprises",
-      "experience": "10 years in the industry"
-    },
-    "tender": {
-      "id": 301,
-      "title": "Software Development Tender",
-      "description": "Tender for developing a new software application.",
-      "budget": 20000,
-      "requirements": [
-        "Requirement 1: User authentication",
-        "Requirement 2: Data encryption"
-      ]
-    }
-  }
-}
+        "bidData":
     }
     
     try:
