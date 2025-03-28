@@ -1,6 +1,6 @@
 document_analyst_task:
   description: >
-    Analyze the bid documents for bid ID
+    Analyze the bid documents for {bidData}
             
             Documents to analyze:
             
@@ -17,7 +17,7 @@ document_analyst_task:
             Provide a comprehensive summary of all key findings from the documents, including 
             any inconsistencies, missing information, or strengths identified.''',
   expected_output: >
-    A comprehensive document analysis report including:
+    A comprehensive document analysis from {bidData} report including:
             - Summary of key information from each document
             - Assessment of document completeness and quality
             - Key issues or strengths identified in the documentation
@@ -31,7 +31,7 @@ document_analyst_task:
   
 initial_screening_task:
   description: >
-    Conduct initial screening of the bid with the following details:
+    Conduct initial screening of {bidData} the bid with the following details:
             - Project Amount:
             - Project Completion Time: 
             - Technical Proposal: 
@@ -57,7 +57,7 @@ initial_screening_task:
 
 compliance_task:
   description: >
-    Conduct a thorough compliance check on the bid with:
+    Conduct a thorough compliance for {bidData} check on the bid with:
             - Documents reports:
             
             Review the document analysis report from the Document Analyst.
@@ -81,7 +81,7 @@ compliance_task:
 
 risk_assessment_task:
   description: >
-    Conduct a detailed risk assessment on the bid with:
+    Conduct a detailed risk assessment on the bid {bidData} with:
             - Risk Factors:
             - Risk Mitigation Plan:
             
@@ -106,7 +106,7 @@ risk_assessment_task:
 
 award_recommendation_task:
   description: >
-    Conduct an award recommendation with:
+    Conduct an award recommendation for {bidData} with:
             - Initial Screening Score: 
             - Compliance Score: 
             - Risk Assessment Score: 

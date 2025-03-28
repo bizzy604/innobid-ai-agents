@@ -17,7 +17,8 @@ def run():
     """
     Run the crew.
     """
-    inputs = {
+    inputs ={
+        "bidData": {
   "bidData": {
     "id": 1,
     "amount": 15000,
@@ -58,6 +59,7 @@ def run():
     }
   }
 }
+    }
     
     try:
         InnobidAiAgent().crew().kickoff(inputs=inputs)
