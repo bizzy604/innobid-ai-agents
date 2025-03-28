@@ -104,28 +104,6 @@ risk_assessment_task:
     }
   agent: risk_assessment_agent
 
-comparative_analysis_task:
-  description: >
-    Conduct a comparative analysis between the bid and other bid requirements
-    
-  expected_output: >
-    A comparative analysis report including:
-    - Comparative analysis score (0-100)
-    - Strengths and weaknesses compared of the bid
-    - Detailed comparative analysis
-      
-  expected_output: >
-    A comparative analysis report including:
-            - Comparative analysis score (0-100)
-            - Strengths and weaknesses compared to other bids
-            - Detailed comparative analysis
-    Example Output:
-    {
-        "score": 80,
-        "report": "The bid is competitive in terms of technical proposal but lacks experience compared to the leading bid."
-    }
-  agent: comparative_analysis_agent
-
 award_recommendation_task:
   description: >
     Conduct an award recommendation with:
@@ -150,27 +128,3 @@ award_recommendation_task:
             - Recommended for award due to strong compliance and risk assessment scores, despite some weaknesses in vendor experience."
     }
   agent: award_recommendation_agent
-
-summary_task:
-  description: >
-    Summarize the final recommendation with:
-            - Recommendation score:
-            - Clear recommendation:
-            - Justification for recommendation:
-            - Key supporting evidences for recommendation:
-            
-            Review the document analysis report from the Document Analyst.
-            
-            Provide a summary of the final recommendation.
-  expected_output: >
-    A summary of the final recommendation including:
-            - Recommendation score (0-100)
-            - Clear recommendation report with either (yes/no)
-            - Justification for recommendation
-            - Key supporting evidences for recommendation
-    Example Output:
-    {
-        "score": 88,
-        "report": "Final recommendation is 'yes' based on strong scores across all assessments and clear justification provided."
-    }
-  agent: summary_agent

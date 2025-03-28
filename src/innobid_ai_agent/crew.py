@@ -18,13 +18,10 @@ class Results(BaseModel):
     report: str
 
 class AggregateResults(BaseModel):
-    document_analysis: Results
     initial_screening: Results
     compliance: Results
     risk_assessment: Results
-    comparative_analysis: Results
     award_recommendation: Results
-    summary: Results
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -65,13 +62,7 @@ class InnobidAiAgent():
             config=self.agents_config['risk_assessment_agent'],
             verbose=True
         )
-    
-    @agent
-    def comparative_analysis_agent(self) -> Agent:
-        return Agent(
-            config=self.agents_config['comparative_analysis_agent'],
-            verbose=True
-        )
+
     
     @agent
     def award_recommendation_agent(self) -> Agent:
@@ -79,13 +70,6 @@ class InnobidAiAgent():
             config=self.agents_config['award_recommendation_agent'],
             verbose=True
         )
-
-    @agent
-    def summary_agent(self) -> Agent:
-        return Agent(
-            config=self.agents_config['summary_agent'],
-        )
-    
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
@@ -102,12 +86,7 @@ class InnobidAiAgent():
             config=self.tasks_config['initial_screening_task'],
         )
 
-    @task
-    def initial_screening_task(self) -> Task:
-        return Task(
-            config=self.tasks_config['initial_screening_task'],
-        )
-    
+   
     @task
     def compliance_task(self) -> Task:
         return Task(
@@ -121,21 +100,9 @@ class InnobidAiAgent():
         )
     
     @task
-    def comparative_analysis_task(self) -> Task:
-        return Task(
-            config=self.tasks_config['comparative_analysis_task'],
-        )
-    
-    @task
     def award_recommendation_taskk(self) -> Task:
         return Task(
             config=self.tasks_config['award_recommendation_task'],
-        )
-    
-    @task
-    def summary_task(self) -> Task:
-        return Task(
-            config=self.tasks_config['summary_task'],
             output_pydantic = AggregateResults
         )
 
